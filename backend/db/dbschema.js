@@ -14,6 +14,9 @@ const Userdata = new mongoose.Schema({
     userbio:'String',
     userprofilepic:'String'
 })
+const postsdata = new mongoose.Schema({
+    
+})
  
 const user = mongoose.model('user',Userdata)
 

@@ -52,7 +52,7 @@ route.post('/signin',async(req,res)=>{
 
 
 
-//------------------------------signin page------------------------------
+//------------------------------signup page------------------------------
 
 route.post('/signup',async(req,res)=>{
     const useremail = req.body.useremail;
@@ -99,6 +99,6 @@ route.post('/signup',async(req,res)=>{
     }
 })
 
-//---------------------------end of signin page--------------------------
+//---------------------------end of signup page--------------------------
 
 module.exports = route;
