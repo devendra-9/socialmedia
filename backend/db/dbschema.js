@@ -10,8 +10,11 @@ if(conn)
 const Userdata = new mongoose.Schema({
     useremail:'String',
     username:'String',
-    password:'String',
-    bio:'String',
-    profilepic:'String'
+    userpassword:'String',
+    userbio:'String',
+    userprofilepic:'String'
 })
+ 
+const user = mongoose.model('user',Userdata)
 
+module.exports = {user}
