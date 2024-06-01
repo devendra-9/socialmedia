@@ -1,10 +1,14 @@
 import { useState } from 'react'
+import { Routes,Route } from 'react-router-dom'
+import Signin from './pages/loginpage'
 
 function App() {
 
   return (
     <div>
-      This is a div
+      <Routes>
+        <Route path='/' element={< Signin />} />
+      </Routes>
     </div>
   )
 }

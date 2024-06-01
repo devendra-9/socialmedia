@@ -1,0 +1,153 @@
+.login-head
+{
+    width: 100%;
+    height: 97vh;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid white; */
+    /* align-items: center; */
+}
+.images
+{
+    width: 50%;
+}
+.images img
+{
+    height: 100%;
+    width:100%
+}
+.loginheader
+{
+    width: 50%;
+    height: 100%;
+    padding: 0px;
+    margin:0px;
+}
+.signin, .signup
+{
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    display: none;
+}
+.signin2, .signup2
+{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid white; */
+}
+.signin2 h1, .signup2 h1
+{
+    padding: 0px;
+    height: 0px;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    font-family: monospace;
+    font-weight: 900;
+    text-decoration: underline;
+    /* border-bottom: 1px solid white; */
+}
+.signindetails
+{
+    padding: 10px;
+    margin: 0px;
+    width: 60%;
+    height: 70%;
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    gap:10px;
+}
+.signindetails h2
+{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    /* background-color: antiquewhite; */
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.signindetails h6
+{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+.signindetails label
+{
+    padding: 0px;
+    margin: 0px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+.signindetails input
+{
+    width: 90%;
+    height: 30px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px;
+    border: 1px solid white;
+    outline: none;
+    background-color: transparent;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+.signindetails button
+{
+    margin-top: 10px;
+    width: 97%;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgb(43, 42, 42);
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.signindetails button:hover
+{
+    background-color: rgb(74, 73, 73);;
+}
+.signindetails p
+{
+    width: 100%;
+    /* background-color: rgb(43, 42, 41); */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+.signindetails p span
+{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+.signindetails p span:hover
+{
+    color: red;
+}
+.active2
+{
+    display: block;
+}
