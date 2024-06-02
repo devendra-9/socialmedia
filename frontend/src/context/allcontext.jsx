@@ -22,7 +22,7 @@ const Allcontextprovider = (props) =>
              if(data.success)
             {
                 localStorage.setItem('token',data.token)
-                return data;
+                return true;
             }
             else
             {
@@ -45,6 +45,7 @@ const Allcontextprovider = (props) =>
             const data = response.json();
             if(data.success)
             {
+                localStorage.setItem('token',data.token)
                 return true;
 
             }
