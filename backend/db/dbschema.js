@@ -24,12 +24,12 @@ const Userdata = new mongoose.Schema({
     },
     userbio:{
         type:String,
-        required:true
+        // required:true
     },
     userprofilepic:
     {
         type:String,
-        required:true
+        // required:true
     }
 })
 const postsdata = new mongoose.Schema({

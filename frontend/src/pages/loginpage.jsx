@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import {Allcontext} from '../context/allcontext'
 import './css/logn.css'
+import { useNavigate } from 'react-router-dom'
 
 const loginpage = () => {
 
-    const {signin,signup} = useContext(Allcontext)
+    const navigate = useNavigate()
 
-    const[error,seterror] = useState(null)
+    const {signin,signup} = useContext(Allcontext)
 
     const [active,isactive] = useState('signin')
     const handlelogin = (namee) =>
@@ -24,16 +25,48 @@ const loginpage = () => {
         setlogindata({...logindata,[e.target.name]:e.target.value})   
     }
 
-    const login = async (login) =>
+    const login = async () =>
     {
-        let result = {}
         if(logindata.useremail==='' || logindata.userpassword==='')
         {
             alert('Please fill all the required field')
         }
         else
         {
-           
+           let result = await signin(logindata)
+           if(result)
+            {
+                navigate('/home')
+            }
+        }
+    }
+
+
+
+    const [signupdata,setsignupdata] = useState({
+        useremail:'',
+        username:'',
+        userpassword:''
+    })
+
+    const handlesignin2 = (e)=>
+    {
+        setsignupdata({...signupdata,[e.target.name]:e.target.value})   
+    }
+
+    const newuser = async ()=>
+    {
+        if(signupdata.useremail==='' || signupdata.userpassword==='' || signupdata.username==='')
+        {
+            alert('all fields are mandatory')
+        }
+        else
+        {
+            const result2 = await signup(signupdata)
+            if(result2)
+            {
+                navigate('/home')
+            }
         }
     }
 
@@ -63,12 +96,12 @@ const loginpage = () => {
                         <h2>Sign Up</h2>
                         <h6>Please enter details to continue..</h6>
                         <label> Email: </label>
-                        <input type="text" placeholder='Enter your Email'/>
+                        <input type="text" placeholder='Enter your Email' name='useremail' value={signupdata.useremail} onChange={handlesignin2}/>
                         <label> Name: </label>
-                        <input type="text" placeholder='Enter your Name'/>
+                        <input type="text" placeholder='Enter your Name' name='username' value={signupdata.username} onChange={handlesignin2}/>
                         <label>Password: </label>
-                        <input type="password" placeholder='Enter your Passwrd'/>
-                        <button>Sign up</button>
+                        <input type="password" placeholder='Enter your Passwrd' name='userpassword' value={signupdata.userpassword} onChange={handlesignin2}/>
+                        <button onClick={()=>newuser()}>Sign up</button>
                         <p><span onClick={()=>handlelogin('signin')}>Sign In  / Login</span></p>
                     </div>
                     </div>

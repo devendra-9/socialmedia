@@ -7,7 +7,7 @@ const {JWT} = require('../config')
 //------------------------------signin page------------------------------
 
 route.post('/signin',async(req,res)=>{
-    const useremail = req.body.email;
+    const useremail = req.body.useremail;
     const userpassword = req.body.userpassword;
     const finduser = await user.findOne({
         useremail
@@ -25,7 +25,7 @@ route.post('/signin',async(req,res)=>{
 
                 res.json({
                     success:true,
-                    msg:'Signed in successfully'
+                    token
                 })
             }
         else
@@ -57,7 +57,7 @@ route.post('/signin',async(req,res)=>{
 route.post('/signup',async(req,res)=>{
     const useremail = req.body.useremail;
     const username = req.body.username;
-    const userpassword = req.body.password;
+    const userpassword = req.body.userpassword;
     const finduser = await user.findOne({
         useremail
     })
@@ -77,16 +77,16 @@ route.post('/signup',async(req,res)=>{
         })
         if(createuser)
         {
+            localStorage.setItem('token',token)
             res.json
             ({
                 success:true,
-                msg:'successfully signed up'
+                token
             })
             const token = jwt.sign({
                 useremail
             },JWT)
 
-            localStorage.setItem('token',token)
 
         }
         else

@@ -7,7 +7,7 @@ app.use(cors());
 app.use(cookieparser())
 app.use(bodyparser.json())
 const LocalStorage = require('node-localstorage').LocalStorage
-const localstorage = new LocalStorage('./token')
+localStorage = new LocalStorage('./token')
 const port = 4000;
 const userlink = require('./route/usroute')
 app.use('/user',userlink)

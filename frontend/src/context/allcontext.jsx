@@ -1,13 +1,14 @@
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Allcontext = createContext(null)
 
 const Allcontextprovider = (props) =>
     {
-        const [result,setresult] = useState({})
+
         const signin = async (logindata) =>
         {
-            await fetch('http://localhost:4000/user/signin',{
+            const response = await fetch('http://localhost:4000/user/signin',{
                 method:'POST',
                 headers:
                 {
@@ -16,27 +17,24 @@ const Allcontextprovider = (props) =>
                 },
                 body:JSON.stringify(logindata)
             })
-            .then((response)=>response.json())
-            .then((data)=>{
-                if(data.success)
-                {
-                    setresult(data)
-                    console.log(result)
-                    return result
-                }
-                else
-                {
-                    setresult(data)
-                    console.log(result)
-                    return result
-                }
-            })
+             const data = await response.json()
+             console.log(data.success)
+             if(data.success)
+            {
+                localStorage.setItem('token',data.token)
+                return data;
+            }
+            else
+            {
+                alert('something went wrong')
+            }
+            
         }
 
 
         const signup = async (signupdata)=>
         {
-            await fetch('http://localhost:4000/user/signup',{
+            const response = await fetch('http://localhost:4000/user/signup',{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -44,10 +42,16 @@ const Allcontextprovider = (props) =>
                 },
                 body:JSON.stringify(signupdata)
             })
-            .then((response)=>response.json())
-            .then((data)=>{
-                console.log(data.success)
-            })
+            const data = response.json();
+            if(data.success)
+            {
+                return true;
+
+            }
+            else
+            {
+                return false
+            }
         }
 
 
