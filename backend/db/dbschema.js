@@ -8,11 +8,29 @@ if(conn)
 }
 
 const Userdata = new mongoose.Schema({
-    useremail:'String',
-    username:'String',
-    userpassword:'String',
-    userbio:'String',
-    userprofilepic:'String'
+    useremail:
+    {
+        type:String,
+        required:true
+    },
+    username:{
+        type:String,
+        required:true
+    },
+    userpassword:
+    {
+        type:String,
+        required:true
+    },
+    userbio:{
+        type:String,
+        required:true
+    },
+    userprofilepic:
+    {
+        type:String,
+        required:true
+    }
 })
 const postsdata = new mongoose.Schema({
     
